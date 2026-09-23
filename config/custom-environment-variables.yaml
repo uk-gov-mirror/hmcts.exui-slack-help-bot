@@ -10,6 +10,7 @@ jira:
   cloud_id: JIRA_CLOUD_ID
   start_transition_id: JIRA_START_TRANSITION_ID
   done_transition_id: JIRA_DONE_TRANSITION_ID
+  todo_transition_id: JIRA_TODO_TRANSITION_ID
   project: JIRA_PROJECT
   epic: JIRA_EPIC
   issue_type_id: JIRA_ISSUE_TYPE_ID

@@ -14,6 +14,7 @@ const jiraEpic = config.has('jira.epic') ? config.get('jira.epic') : undefined
 
 const jiraStartTransitionId = config.get('jira.start_transition_id')
 const jiraDoneTransitionId = config.get('jira.done_transition_id')
+const jiraTodoTransitionId = config.get('jira.todo_transition_id')
 const extractProjectRegex = new RegExp(`(${jiraProject}-[\\d]+)`)
 
 const jiraBaseUrl = new URL(config.get('jira.base_url'))
@@ -224,6 +225,9 @@ async function convertEmail(email) {
 async function createHelpRequestInJira(summary, project, user, labels) {
     console.log(`Creating help request in Jira for user: ${user}`)
     const issue = await jira.addNewIssue({
+        transition: {
+            id: jiraTodoTransitionId
+        },
         fields: {
             summary: summary,
             issuetype: {
